@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aesthetic Phone Case</title>
+    <meta name="description" content="Toko casing HP aesthetic dengan desain lucu, minimalis, dan trendy." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <div class="brand">
+        <img src="./assets/logo.svg" alt="Logo Aesthetic Phone Case" width="36" height="36" />
+        <span>Aesthetic Phone Case</span>
+      </div>
+      <nav>
+        <a href="#produk">Produk</a>
+        <a href="#testimoni">Testimoni</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <button class="cart-btn" aria-label="Buka keranjang" id="openCartBtn">
+        <img src="./assets/cart.svg" alt="" width="22" height="22">
+        <span id="cartCount" class="badge">0</span>
+      </button>
+    </header>
+
+    <!-- Slider / Hero -->
+    <section class="hero">
+      <div class="slides" id="slides">
+        <div class="slide" style="--bg: var(--grad-1)">
+          <div class="slide-content">
+            <h1>Gaya Aesthetic<br/>Setiap Hari ✨</h1>
+            <p>Desain lucu & minimalis, cocok buat semua mood kamu.</p>
+            <a class="btn" href="#produk">Belanja Sekarang</a>
+          </div>
+          <img class="slide-img" src="./assets/hero-1.svg" alt="Ilustrasi casing aesthetic" />
+        </div>
+        <div class="slide" style="--bg: var(--grad-2)">
+          <div class="slide-content">
+            <h1>Anti Gores,<br/>Anti Bosan</h1>
+            <p>Material premium, tetap kece dan aman.</p>
+            <a class="btn" href="#produk">Lihat Koleksi</a>
+          </div>
+          <img class="slide-img" src="./assets/hero-2.svg" alt="Ilustrasi casing minimalis" />
+        </div>
+        <div class="slide" style="--bg: var(--grad-3)">
+          <div class="slide-content">
+            <h1>Diskon Musim Ini 🌈</h1>
+            <p>Ambil 10% off untuk koleksi pilihan.</p>
+            <a class="btn" href="#produk">Cek Promo</a>
+          </div>
+          <img class="slide-img" src="./assets/hero-3.svg" alt="Ilustrasi casing colorful" />
+        </div>
+      </div>
+      <div class="slider-controls">
+        <button id="prevSlide" aria-label="Slide sebelumnya">‹</button>
+        <div id="dots" class="dots"></div>
+        <button id="nextSlide" aria-label="Slide berikutnya">›</button>
+      </div>
+    </section>
+
+    <!-- Produk -->
+    <section id="produk" class="container pad-y">
+      <div class="section-head">
+        <h2>Koleksi Terbaru</h2>
+        <div class="filters">
+          <input id="searchInput" type="search" placeholder="Cari model / tipe HP…" />
+          <select id="modelFilter" aria-label="Filter tipe HP">
+            <option value="">Semua Tipe</option>
+            <option>iPhone 13</option>
+            <option>iPhone 14</option>
+            <option>iPhone 15</option>
+            <option>Samsung S23</option>
+            <option>Samsung A54</option>
+            <option>Vivo V29</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="productGrid" class="grid"></div>
+    </section>
+
+    <!-- Testimoni -->
+    <section id="testimoni" class="pad-y soft-bg">
+      <div class="container">
+        <h2>Reaksi Pelanggan</h2>
+        <div class="testi-wrap" id="testiWrap">
+          <!-- injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container pad-y">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Apakah bisa COD?</summary>
+        <p>Bisa untuk area tertentu. Di luar itu menggunakan ekspedisi tepercaya.</p>
+      </details>
+      <details>
+        <summary>Berapa lama pengiriman?</summary>
+        <p>1–3 hari kerja untuk Jabodetabek, 2–6 hari kerja untuk luar pulau.</p>
+      </details>
+      <details>
+        <summary>Apakah garansi tersedia?</summary>
+        <p>Garansi tukar baru 7 hari jika cacat produksi.</p>
+      </details>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pad-y">
+      <div class="container foot">
+        <p>© <span id="year"></span> Aesthetic Phone Case • All rights reserved.</p>
+        <div class="socials">
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <aside id="cartDrawer" class="drawer" aria-hidden="true" aria-labelledby="cartTitle" role="dialog">
+      <div class="drawer-panel">
+        <header class="drawer-head">
+          <h3 id="cartTitle">Keranjang</h3>
+          <button id="closeCartBtn" aria-label="Tutup keranjang">×</button>
+        </header>
+        <div id="cartItems" class="drawer-body"></div>
+        <div class="drawer-foot">
+          <div class="total">
+            <span>Total</span>
+            <strong id="cartTotal">Rp0</strong>
+          </div>
+          <button id="checkoutBtn" class="btn full">Checkout</button>
+        </div>
+      </div>
+      <button class="drawer-backdrop" id="cartBackdrop" aria-label="Tutup"></button>
+    </aside>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="checkoutTitle">
+      <div class="modal-panel">
+        <header class="modal-head">
+          <h3 id="checkoutTitle">Checkout Aman via HTTPS</h3>
+          <button id="closeCheckout" aria-label="Tutup">×</button>
+        </header>
+        <form id="checkoutForm" class="modal-body">
+          <label>Nama Penerima
+            <input name="nama" required />
+          </label>
+          <label>No. HP / WhatsApp
+            <input name="phone" required inputmode="tel" />
+          </label>
+          <label>Alamat Lengkap
+            <textarea name="alamat" required></textarea>
+          </label>
+          <label>Metode Pembayaran
+            <select name="pembayaran" required>
+              <option>Transfer Bank</option>
+              <option>QRIS</option>
+              <option>COD</option>
+            </select>
+          </label>
+          <button type="submit" class="btn full">Buat Pesanan</button>
+          <p class="tiny">*Demo statis. Untuk pembayaran nyata, unggah situs ke hosting yang mendukung <strong>HTTPS</strong> dan integrasi payment gateway.</p>
+        </form>
+      </div>
+      <button class="modal-backdrop" id="checkoutBackdrop" aria-label="Tutup"></button>
+    </div>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
